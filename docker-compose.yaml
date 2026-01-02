@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    image: gold-monitor
+    restart: unless-stopped
+    env_file: 
+      - .env

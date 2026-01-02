@@ -1,0 +1,8 @@
+*-lock.yaml
+
+node_modules
+
+.env
+
+# macOS
+.DS_Store
