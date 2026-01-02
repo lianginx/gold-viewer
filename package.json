@@ -1,7 +1,7 @@
 {
-  "name": "gold-monitor",
+  "name": "gold-viewer",
   "version": "1.0.0",
-  "description": "",
+  "description": "每小时抓取中国上海黄金交易所交易数据，通过Bark推送到 iOS 设备。",
   "type": "module",
   "main": "src/index.js",
   "scripts": {
