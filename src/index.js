@@ -2,7 +2,9 @@ import "dotenv/config";
 
 monitorGoldPrice();
 
-async function monitorGoldPrice(interval = 3600) {
+async function monitorGoldPrice(
+  interval = parseInt(process.env.INTERVAL) || 1800
+) {
   while (true) {
     const start = Date.now();
 
@@ -32,12 +34,7 @@ async function monitorGoldPrice(interval = 3600) {
   }
 }
 
-async function barkPush(
-  deviceKey,
-  message,
-  title = "金价监控",
-  sound = true
-) {
+async function barkPush(deviceKey, message, title = "金价监控", sound = true) {
   try {
     const baseUrl = `https://api.day.app/${deviceKey.trim()}/${encodeURIComponent(
       message
@@ -79,7 +76,7 @@ const toFloat = (v) => {
 
 async function getGoldPrice() {
   try {
-    const res = await fetch("https://www.5huangjin.com/data/jin.js", {
+    const res = await fetch("http://www.5huangjin.com/data/jin.js", {
       method: "GET",
       headers: {
         "User-Agent":
